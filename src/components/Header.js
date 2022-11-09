@@ -10,7 +10,7 @@ const StyledSection = styled.section`
   background-color: "#FFFFFF";
 `;
 const StyledUser = styled.div`
-  width: 401px;
+  width: 521px;
   height: 80px;
   position: absolute;
   left: 16px;
@@ -35,7 +35,7 @@ const StyledUser = styled.div`
     color: #000000;
     position: absolute;
     left: 91px;
-    top: -5px;
+    top: 17px;
   }
   .font2 {
     width: 498px;
@@ -48,7 +48,7 @@ const StyledUser = styled.div`
     color: #666666;
     position: absolute;
     left: 91px;
-    top: 32px;
+    top: 47px;
   }
 `;
 export default function Header() {
