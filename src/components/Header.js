@@ -36,6 +36,7 @@ const StyledUser = styled.div`
     position: absolute;
     left: 91px;
     top: 17px;
+    color: ${({ theme }) => theme.textColorBase}
   }
   .font2 {
     width: 498px;

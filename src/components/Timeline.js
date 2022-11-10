@@ -3,8 +3,8 @@ import styled from "styled-components";
 const StyledTimeline = styled.div`
   flex: 1;
   width: 100%;
-  padding: 16px;
   overflow: hidden;
+  padding: 16px;
   position: absolute;
   top: 398px;
   h2 {
@@ -23,8 +23,8 @@ const StyledTimeline = styled.div`
   section {
     width: 100%;
     padding: 0;
-    overflow: hidden;
     padding: 16px;
+    overflow: hidden;
     div {
       width: calc(100vw - 16px * 4);
       display: grid;
