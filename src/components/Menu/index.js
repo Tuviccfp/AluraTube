@@ -1,5 +1,5 @@
-import { MagnifyingGlass} from "phosphor-react";
 import styled from "styled-components";
+import Search from "./components/Search";
 
 const StyledMenu = styled.header`
   display: flex;
@@ -23,17 +23,6 @@ const StyledMenu = styled.header`
       fill: ${({ theme }) => theme.textColorBase || "#222222"};
     }
   }
-  .input-layout {
-    width: 425px;
-    height: 42px;
-    position: absolute;
-    top: 7px;
-    left: 544px;
-    background-color: "#F9F9F9";
-    border: 1px solid "#E5E5E5";
-    border-radius: 2px;
-    box-sizing: border-box;
-  }
   .btn-search {
         width: 64px;
         height: 42px;
@@ -46,18 +35,15 @@ const StyledMenu = styled.header`
         cursor: pointer;
   }
   `
-export default function Menu() {
+export default function Menu({valorDoFiltro, setValorDoFiltro}) {
     return (
         <StyledMenu>
             <div>
                 <a href="#">
                     <Logo />
                 </a>
-                <input className="input-layout" type="Text" placeholder="Pesquisar"/>
-                <button className="btn-search">
-                    <MagnifyingGlass/>
-                </button>
             </div>
+            <Search valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
         </StyledMenu>
     );
 }

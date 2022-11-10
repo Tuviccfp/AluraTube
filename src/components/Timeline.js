@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 const StyledTimeline = styled.div`
   flex: 1;
   width: 100%;
@@ -25,13 +26,12 @@ const StyledTimeline = styled.div`
     overflow: hidden;
     padding: 16px;
     div {
-      
       width: calc(100vw - 16px * 4);
       display: grid;
       grid-gap: 16px;
-      grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       grid-auto-flow: column;
-      grid-auto-columns: minmax(200px,1fr);
+      grid-auto-columns: minmax(200px, 1fr);
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
       a {
@@ -46,7 +46,7 @@ const StyledTimeline = styled.div`
     }
   }
 `;
-export default function Timeline(props) {
+export default function Timeline({searchValue, ...props}) {
   const playlistNames = Object.keys(props.playlist);
 
   return (
@@ -57,16 +57,20 @@ export default function Timeline(props) {
           <section>
             <h2>{playlistName}</h2>
             <div>
-              {videos.map((videoList) => {
-                return (
-                  <a href={videoList.url}>
-                    <img src={videoList.thumb} alt="#"></img>
-                    <span>
-                      {videoList.title}
-                    </span>
-                  </a>
-                );
-              })}
+              {videos
+                .filter((videoFilter) => {
+                  const titleNormalized = videoFilter.title.toLowerCase()
+                  const searchValueNormalized = searchValue.toLowerCase();
+                  return titleNormalized.includes(searchValueNormalized);
+                })
+                .map((videoList) => {
+                  return (
+                    <a href={videoList.url}>
+                      <img src={videoList.thumb} alt="#"></img>
+                      <span>{videoList.title}</span>
+                    </a>
+                  );
+                })}
             </div>
           </section>
         );

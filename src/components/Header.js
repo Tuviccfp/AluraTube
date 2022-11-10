@@ -51,14 +51,15 @@ const StyledUser = styled.div`
     top: 47px;
   }
 `;
-export default function Header() {
-  const imgBanner = {
-    width: "1903px",
-    height: "230px",
-  };
+const StyledBanner = styled.div`
+  background-image: url(${({bg}) => bg});
+  height: 230px;
+  width: 1855px;
+`
+export default function Header(props) {
   return (    
       <StyledSection>
-        <img style={imgBanner} src="./img/banner.jpg" alt="" />
+        <StyledBanner bg={props.banner} />
         <StyledUser>
           <img
             className="img-perfil"
